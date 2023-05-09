@@ -31,11 +31,26 @@ class CounterPage extends StatelessWidget {
               );
             }),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: viewModel.store.incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: Row(children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 29),
+          child: FloatingActionButton(
+            onPressed: viewModel.store.incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ),
+        const Spacer(),
+        FloatingActionButton(
+            onPressed: viewModel.store.desincrementCounter,
+            tooltip: 'Decrement',
+            child: const Text(
+              '-',
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            )),
+      ]),
     );
   }
 }
